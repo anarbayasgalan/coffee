@@ -142,9 +142,9 @@ a {
   background: rgba(255, 255, 255, 0.9);
   padding: 8px;
   border-radius: 50px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .mode-btn {
@@ -163,7 +163,7 @@ a {
 .mode-btn.active {
   background: var(--color-dark);
   color: white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Mega Dropdown */
@@ -353,7 +353,8 @@ a {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px; /* Fixed width underline for precision */
+  width: 60px;
+  /* Fixed width underline for precision */
   height: 4px;
   background-color: #8b5a2b;
   transition: all 0.3s ease;
@@ -387,8 +388,10 @@ a {
 }
 
 body.immersive-mode .variety-content {
-  background: rgba(255, 255, 255, 0.05); /* Lighter for a more glassy feel */
-  backdrop-filter: blur(5px); /* Reduced blur as requested */
+  background: rgba(255, 255, 255, 0.05);
+  /* Lighter for a more glassy feel */
+  backdrop-filter: blur(5px);
+  /* Reduced blur as requested */
   -webkit-backdrop-filter: blur(5px);
   border-radius: 24px;
   margin: 2rem;
@@ -613,39 +616,63 @@ footer {
 /* Animations & Utilities */
 .reveal {
   opacity: 0;
-  transform: translateY(60px) scale(0.9);
-  filter: blur(5px);
-  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.9);
+  transition: all 0.6s cubic-bezier(.16, .84, .44, 1);
 }
 
 .reveal.active {
   opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
+  transform: scale(1);
 }
 
 /* Horizontal Slides */
-.reveal.slide-left { transform: translateX(-80px) translateY(0); }
-.reveal.slide-right { transform: translateX(80px) translateY(0); }
+.reveal.slide-left {
+  transform: translateX(-80px) translateY(0);
+}
+
+.reveal.slide-right {
+  transform: translateX(80px) translateY(0);
+}
 
 /* Zoom variants */
-.reveal.zoom-in { transform: scale(0.5); opacity: 0; }
-.reveal.zoom-out { transform: scale(1.5); opacity: 0; }
+.reveal.zoom-in {
+  transform: scale(0.5);
+  opacity: 0;
+}
+
+.reveal.zoom-out {
+  transform: scale(1.5);
+  opacity: 0;
+}
 
 /* Elegant Blur/Fade only */
-.reveal.blur-reveal { transform: translateY(0) scale(1); filter: blur(20px); }
+.reveal.blur-reveal {
+  transform: translateY(0) scale(1);
+  filter: blur(20px);
+}
 
 /* Applying active states */
 .reveal.active.slide-left,
-.reveal.active.slide-right { transform: translateX(0) translateY(0); }
+.reveal.active.slide-right {
+  transform: translateX(0) translateY(0);
+}
+
 .reveal.active.zoom-in,
-.reveal.active.zoom-out { transform: scale(1); opacity: 1; }
-.reveal.active.blur-reveal { filter: blur(0); opacity: 1; }
+.reveal.active.zoom-out {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.reveal.active.blur-reveal {
+  filter: blur(0);
+  opacity: 1;
+}
 
 /* Interactive hover-tilt effect (optional class for static elements) */
 .tilt-card {
   transition: transform 0.5s ease;
 }
+
 .tilt-card:hover {
   transform: perspective(1000px) rotateX(5deg) rotateY(10deg) scale(1.02);
 }
@@ -656,11 +683,12 @@ footer {
 }
 
 /* --- Immersive Mode Backgrounds --- */
-body.immersive-mode #history { 
+body.immersive-mode #history {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/media/image2.jpg') !important;
   background-size: cover;
   background-position: center;
-  color: white; /* Flip text color for dark background */
+  color: white;
+  /* Flip text color for dark background */
 }
 
 body.immersive-mode #history h2,
@@ -691,31 +719,32 @@ body.immersive-mode .history-grid {
 }
 
 body.immersive-mode #pacamara {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/media/image11.jpg') !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/media/image11.jpg') !important;
   background-size: cover;
   background-position: center;
 }
 
 body.immersive-mode #haba {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/media/image13.jpg') !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/media/image13.jpg') !important;
   background-size: cover;
   background-position: center;
 }
 
 body.immersive-mode #parainema {
-  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/media/image15.jpg') !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/media/image15.jpg') !important;
   background-size: cover;
   background-position: center;
 }
 
 body.immersive-mode #sustainability {
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/media/image5.jpg') !important;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/media/image5.jpg') !important;
   background-size: cover;
   background-position: center;
 }
 
 body.immersive-mode .history-text {
-  background: rgba(255, 255, 255, 0.1); /* More transparent glassy look */
+  background: rgba(255, 255, 255, 0.1);
+  /* More transparent glassy look */
   padding: 3rem;
   border-radius: 20px;
   backdrop-filter: blur(5px);
