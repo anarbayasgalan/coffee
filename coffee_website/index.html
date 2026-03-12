@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estella Legacy Coffee | Three Generations, One Purpose</title>
+  <!-- Modern premium font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+
+      <ul class="nav-links left-links">
+        <li class="nav-item">
+          <a href="#home">Home</a>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="#about">About us</a>
+          <div class="mega-dropdown">
+            <div class="dropdown-content">
+              <a href="#history">Our History</a>
+              <a href="#purpose">Purpose & Mission</a>
+              <a href="#conduct">Code of Conduct</a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="#sustainability">Sustainability</a>
+          <div class="mega-dropdown">
+            <div class="dropdown-content">
+              <a href="#sustainability">Objective</a>
+              <a href="#sustainability">Certifications</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="logo">
+        <a href="#home">
+          <img src="/media/image4.png" alt="Estella Legacy Coffee">
+        </a>
+      </div>
+
+      <ul class="nav-links right-links">
+        <li class="nav-item has-dropdown">
+          <a href="#coffee-varieties">Our Coffee</a>
+          <div class="mega-dropdown">
+            <div class="dropdown-content">
+              <div class="coffee-preview-grid">
+                <a href="#pacamara" class="coffee-card">
+                  <img src="/media/image11.jpg" alt="Pacamara">
+                  <span>Pacamara</span>
+                </a>
+                <a href="#haba" class="coffee-card">
+                  <img src="/media/image13.jpg" alt="Haba">
+                  <span>Haba</span>
+                </a>
+                <a href="#parainema" class="coffee-card">
+                  <img src="/media/image15.jpg" alt="Parainema">
+                  <span>Parainema</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item"><a href="#contact">Contact Us</a></li>
+        <li class="nav-item has-dropdown">
+          <a href="#contact">Contact Us</a>
+          <div class="mega-dropdown">
+            <div class="dropdown-content">
+              <p>Email: mvaltamiranog@gmail.com</p>
+              <p>Phone: +505-88881607</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-background" id="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-logo-box">
+        <img src="/media/image17.png" alt="Estella Legacy Coffee" class="hero-logo">
+      </div>
+      <h1 class="reveal">Estella Legacy Coffee</h1>
+      <p class="hero-subtitle reveal">Three Generations, One Purpose</p>
+    </div>
+
+    <!-- Sticky Anchor Nav -->
+    <div class="sticky-nav">
+      <a href="#history" class="sticky-link active" data-color="#f4e1d2">About Us</a>
+      <a href="#coffee-varieties" class="sticky-link" data-color="#4a5d23">Our Coffee</a>
+      <a href="#sustainability" class="sticky-link" data-color="#2d4c1e">Sustainability</a>
+      <a href="#contact" class="sticky-link" data-color="#ffffff">Contact Us</a>
+    </div>
+  </header>
+
+  <!-- Content Sections -->
+  <!-- Visual Mode Toggle -->
+  <div class="mode-toggle">
+    <button class="mode-btn active" id="btn-solid">Solid Look</button>
+    <button class="mode-btn" id="btn-immersive">Immersive View</button>
+  </div>
+
+  <main>
+    <!-- History Section (About Us) -->
+    <section id="history" class="full-bleed-section" style="background-color: #f4e1d2; color: #333;">
+      <div class="section-container">
+        <div class="history-grid">
+          <div class="history-image reveal zoom-in">
+            <img src="/media/image2.jpg" alt="Our Heritage">
+          </div>
+          <div class="history-text reveal slide-right">
+            <h2>Three Generations of Excellence</h2>
+            <div class="timeline">
+              <div class="timeline-event reveal blur-reveal">
+                <h3>1912 - The Beginning</h3>
+                <p>Andrés Gutiérrez Bucardo planted the first coffee seeds received from German growers in Jinotega,
+                  Nicaragua.</p>
+              </div>
+              <div class="timeline-event reveal blur-reveal">
+                <h3>The Professionalization</h3>
+                <p>His son Gonzalo transformed the family farm into a professional enterprise with technical precision.
+                </p>
+              </div>
+              <div class="timeline-event reveal blur-reveal">
+                <h3>The Estella Legacy</h3>
+                <p>Estella led the farm through political unrest, ensuring its resilience and growth with unwavering
+                  strength.</p>
+              </div>
+              <div class="timeline-event reveal blur-reveal" id="purpose">
+                <h3>Purpose & Mission</h3>
+                <p>To produce exceptional coffee while preserving our environment and supporting our local community
+                  through sustainable practices.</p>
+              </div>
+              <div class="timeline-event reveal blur-reveal" id="conduct">
+                <h3>Code of Conduct</h3>
+                <p>Integrity, quality, and respect for nature guide every decision we make from seed to cup.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coffee Varieties Section -->
+    <section id="coffee-varieties" class="varieties-section">
+      <div class="variety-row" id="pacamara" style="background-color: #4a5d23;">
+        <div class="variety-content reveal slide-left">
+          <span class="category-tag">Variety</span>
+          <h2>Pacamara</h2>
+          <p>Exceptional quality directly from our high-altitude farms. Grown at 1300 masl, this variety offers a
+            complex and vibrant profile.</p>
+          <div class="specs-grid">
+            <div class="spec-item"><strong>Score</strong><span>85</span></div>
+            <div class="spec-item"><strong>Process</strong><span>Washed Natural</span></div>
+            <div class="spec-item"><strong>Altitude</strong><span>1300 masl</span></div>
+          </div>
+        </div>
+        <div class="variety-image reveal zoom-out tilt-card">
+          <img src="/media/image11.jpg" alt="Pacamara Beans">
+        </div>
+      </div>
+
+      <div class="variety-row reverse" id="haba" style="background-color: #8b5a2b;">
+        <div class="variety-content reveal slide-right">
+          <span class="category-tag">Variety</span>
+          <h2>Haba</h2>
+          <p>Rich, bold flavors cultivated with passion. A testament to the professionalization realized by the second
+            generation of our family.</p>
+          <div class="specs-grid">
+            <div class="spec-item"><strong>Score</strong><span>85</span></div>
+            <div class="spec-item"><strong>Process</strong><span>Washed Natural</span></div>
+            <div class="spec-item"><strong>Altitude</strong><span>1300 masl</span></div>
+          </div>
+        </div>
+        <div class="variety-image reveal slide-left">
+          <img src="/media/image13.jpg" alt="Haba Beans">
+        </div>
+      </div>
+
+      <div class="variety-row" id="parainema" style="background-color: #c85a17;">
+        <div class="variety-content reveal slide-left">
+          <span class="category-tag">Variety</span>
+          <h2>Parainema</h2>
+          <p>A vibrant profile that tells the story of our legacy. High-yielding and resistant, reflecting our
+            innovative approach to sustainability.</p>
+          <div class="specs-grid">
+            <div class="spec-item"><strong>Score</strong><span>85</span></div>
+            <div class="spec-item"><strong>Process</strong><span>Washed Natural</span></div>
+            <div class="spec-item"><strong>Altitude</strong><span>1300 masl</span></div>
+          </div>
+        </div>
+        <div class="variety-image reveal slide-right">
+          <img src="/media/image15.jpg" alt="Parainema Beans">
+        </div>
+      </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section id="sustainability" class="full-bleed-section" style="background-color: #2d4c1e; color: white;">
+      <div class="section-container">
+        <div class="text-block reveal">
+          <span class="category-tag">Impact</span>
+          <h2>Sustainability & Commitment</h2>
+          <p>Our coffee thrives alongside nature. We safeguard native fauna and manage a sanctuary for wildlife across
+            18 hectares of conserved forest.</p>
+          <ul class="benefit-list">
+            <li><strong>Rainforest Alliance Certified</strong></li>
+            <li><strong>100% Traceable</strong> from San Andrés Farm to Port</li>
+            <li><strong>Biodiversity Conservation</strong> and Native forest preservation</li>
+          </ul>
+        </div>
+        <div class="image-grid reveal">
+          <div class="grid-item"><img src="/media/image5.jpg" alt="Finca Landscape"></div>
+          <div class="grid-item"><img src="/media/image7.jpg" alt="Coffee Cherries"></div>
+          <div class="grid-item"><img src="/media/image10.jpg" alt="Wildlife Sanctuary"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container reveal">
+        <h2>Let's Connect</h2>
+        <p>Ready for direct trade samples and partnerships. Let´s bring Nicaraguan excellence to your market.</p>
+        <div class="contact-methods">
+          <div class="method">
+            <strong>Location</strong>
+            <span>Finca San Andrés, Jinotega, Nicaragua</span>
+          </div>
+          <div class="method">
+            <strong>Email</strong>
+            <span>mvaltamiranog@gmail.com</span>
+          </div>
+          <div class="method">
+            <strong>Phone</strong>
+            <span>+505-88881607</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2026 Estella Legacy Coffee. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
