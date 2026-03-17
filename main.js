@@ -56,30 +56,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Background Video & Slideshow Logic ---
     const video = document.getElementById('hero-bg-video');
+    const slideshowContainer = document.getElementById('hero-slideshow');
     let transitionTriggered = false;
+    let slideshowInterval = null;
+
+    function resetHeroSection() {
+        if (!video) return;
+        
+        // Stop any existing slideshow interval
+        if (slideshowInterval) clearInterval(slideshowInterval);
+        
+        // Reset flags
+        transitionTriggered = false;
+        
+        // Reset Video State
+        video.currentTime = 0;
+        video.style.transition = 'none';
+        video.style.transform = 'translate(0, 0)';
+        video.style.opacity = '1';
+        video.play().catch(() => {});
+
+        // Reset Slideshow State
+        if (slideshowContainer) {
+            slideshowContainer.classList.remove('active');
+            slideshowContainer.innerHTML = ''; // Clear existing slides
+        }
+    }
 
     if (video) {
-        // Fallback for mobile: play on first user interaction if autoplay is blocked
-        const forcePlay = () => {
-            video.play().catch(err => console.log("Video play failed:", err));
-            window.removeEventListener('click', forcePlay);
-            window.removeEventListener('touchstart', forcePlay);
-        };
-        window.addEventListener('click', forcePlay);
-        window.addEventListener('touchstart', forcePlay, { passive: true });
+        // Force play as soon as possible
+        video.play().catch(() => {
+            // If autoplay fails, fallback to interaction (kept as silent insurance)
+            const forcePlay = () => {
+                video.play().catch(() => {});
+                window.removeEventListener('click', forcePlay);
+                window.removeEventListener('touchstart', forcePlay);
+            };
+            window.addEventListener('click', forcePlay);
+            window.addEventListener('touchstart', forcePlay, { passive: true });
+        });
 
         // We use 'timeupdate' to catch the end instantly on all devices
         video.addEventListener('timeupdate', () => {
             const timeLeft = video.duration - video.currentTime;
-            
-            // If we're within 0.3 seconds of the end, start the transition
             if (!transitionTriggered && timeLeft <= 0.3 && video.duration > 0) {
                 transitionTriggered = true;
                 triggerSlideshowTransition();
             }
         });
 
-        // Safety fallback
         video.addEventListener('ended', () => {
             if (!transitionTriggered) {
                 transitionTriggered = true;
@@ -88,12 +113,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Reset Hero on Home/Logo Click ---
+    const homeLinks = document.querySelectorAll('a[href="#home"]');
+    homeLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // If we are already on the page, reset the hero
+            resetHeroSection();
+        });
+    });
+
     function triggerSlideshowTransition() {
-        const videoEl = document.getElementById('hero-bg-video');
+        if (!video) return;
         // Smoothly slide out the localized video
-        videoEl.style.transition = 'transform 1.0s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.0s ease-out';
-        videoEl.style.transform = 'translate(-100%, 0)'; // Slide left
-        videoEl.style.opacity = '0'; 
+        video.style.transition = 'transform 1.0s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.0s ease-out';
+        video.style.transform = 'translate(-100%, 0)'; // Slide left
+        video.style.opacity = '0'; 
         startHeroSlideshow();
     }
 
@@ -103,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (i !== 4) heroImages.push(`/media/image${i}.jpg`);
     }
 
-    // Randomly shuffle images
     function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -123,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startHeroSlideshow() {
-        const slideshowContainer = document.getElementById('hero-slideshow');
         if (!slideshowContainer) return;
         
         slideshowContainer.classList.add('active'); 
@@ -132,20 +164,20 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentSlide = createSlide(heroImages[currentSlideIndex], -3);
         slideshowContainer.appendChild(currentSlide);
         
-        // Animate first slide in from right
         currentSlide.style.transform = 'translateX(100%)';
-        void currentSlide.offsetWidth; // Force reflow
+        void currentSlide.offsetWidth; 
         currentSlide.style.transform = 'translateX(0)';
 
-        // Loop through images sliding in from right
-        setInterval(() => {
+        if (slideshowInterval) clearInterval(slideshowInterval);
+        
+        slideshowInterval = setInterval(() => {
             currentSlideIndex = (currentSlideIndex + 1) % heroImages.length;
             
             const nextSlide = createSlide(heroImages[currentSlideIndex], -2);
             nextSlide.style.transform = 'translateX(100%)';
             slideshowContainer.appendChild(nextSlide);
             
-            void nextSlide.offsetWidth; // Force reflow
+            void nextSlide.offsetWidth; 
             
             nextSlide.style.transform = 'translateX(0)';
             currentSlide.style.transform = 'translateX(-30%)'; 
