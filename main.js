@@ -17,6 +17,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Immersive mode is always on
     document.body.classList.add('immersive-mode');
+
+    // --- Mobile Menu Toggle ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelectorAll('.nav-links'); // both left and right
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.forEach(nav => nav.classList.toggle('active'));
+            document.body.classList.toggle('no-scroll'); // Prevent background scrolling
+        });
+
+        // Close menu when a link is clicked
+        const navItems = document.querySelectorAll('.nav-item > a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768 && !item.parentElement.classList.contains('has-dropdown')) {
+                    menuToggle.classList.remove('active');
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    document.body.classList.remove('no-scroll');
+                }
+            });
+        });
+    }
+
+    // Handle mobile dropdowns
+    const mobileDropdowns = document.querySelectorAll('.nav-item.has-dropdown > a');
+    mobileDropdowns.forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                // If it's a mobile dropdown, toggle it on click instead of navigating
+                e.preventDefault();
+                anchor.parentElement.classList.toggle('active');
+            }
+        });
+    });
 });
 
 // --- YouTube Background & Slideshow Logic ---
@@ -42,7 +78,21 @@ window.onYouTubeIframeAPIReady = function() {
 };
 
 function onPlayerReady(event) {
+    event.target.mute();
     event.target.playVideo();
+    
+    // Fallback for mobile browser's "no-autoplay" policy:
+    // Play the video as soon as the user touches the screen anywhere
+    const forcePlay = () => {
+        if (player && typeof player.playVideo === 'function') {
+            player.playVideo();
+            console.log("Forced video play on interaction");
+        }
+        window.removeEventListener('touchstart', forcePlay);
+        window.removeEventListener('click', forcePlay);
+    };
+    window.addEventListener('touchstart', forcePlay, { passive: true });
+    window.addEventListener('click', forcePlay);
 }
 
 let timeCheckerInterval = null;
