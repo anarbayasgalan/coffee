@@ -24,15 +24,8 @@
         <li class="nav-item">
           <a href="#home">Home</a>
         </li>
-        <li class="nav-item has-dropdown">
-          <a href="#about">About us</a>
-          <div class="mega-dropdown">
-            <div class="dropdown-content">
-              <a href="#history">Our History</a>
-              <a href="#purpose">Purpose & Mission</a>
-              <a href="#conduct">Code of Conduct</a>
-            </div>
-          </div>
+        <li class="nav-item">
+          <a href="#history">About us</a>
         </li>
         <li class="nav-item has-dropdown">
           <a href="#sustainability">Sustainability</a>
@@ -61,9 +54,9 @@
                   <img src="/media/image11.jpg" alt="Pacamara">
                   <span>Pacamara</span>
                 </a>
-                <a href="#haba" class="coffee-card">
-                  <img src="/media/image13.jpg" alt="Haba">
-                  <span>Haba</span>
+                <a href="#java" class="coffee-card">
+                  <img src="/media/image13.jpg" alt="Java">
+                  <span>Java</span>
                 </a>
                 <a href="#parainema" class="coffee-card">
                   <img src="/media/image15.jpg" alt="Parainema">
@@ -77,10 +70,21 @@
           <a href="#contact">Contact Us</a>
           <div class="mega-dropdown">
             <div class="dropdown-content">
-              <p>Email: mvaltamiranog@gmail.com</p>
-              <p>Phone: +505-88881607</p>
+              <div class="nav-contact-row">
+                <strong>Francesco</strong>
+                <a href="mailto:francesco@stellalegacycoffee.com">francesco@stellalegacycoffee.com</a>
+                <a href="tel:+393520426725">+39 352 042 6725</a>
+              </div>
+              <div class="nav-contact-row">
+                <strong>Louis</strong>
+                <a href="mailto:louis@estellalegacycoffee.com">louis@estellalegacycoffee.com</a>
+                <a href="tel:+4915238425818">+49 1523 842 5818</a>
+              </div>
             </div>
           </div>
+        </li>
+        <li class="nav-item">
+          <a href="#visit">Visit Us</a>
         </li>
       </ul>
     </div>
@@ -88,7 +92,11 @@
 
   <!-- Hero Section -->
   <header class="hero" id="home">
-    <div class="hero-background" id="hero-bg"></div>
+    <div class="hero-video-container">
+      <div id="youtube-player" class="hero-background-video"></div>
+      <div id="hero-slideshow" class="hero-slideshow"></div>
+      <div class="video-overlay"></div>
+    </div>
     <div class="hero-content">
       <div class="hero-logo-box">
         <img src="/media/image17.png" alt="Estella Legacy Coffee" class="hero-logo">
@@ -96,23 +104,9 @@
       <h1 class="reveal">Estella Legacy Coffee</h1>
       <p class="hero-subtitle reveal">Three Generations, One Purpose</p>
     </div>
-
-    <!-- Sticky Anchor Nav -->
-    <div class="sticky-nav">
-      <a href="#history" class="sticky-link active" data-color="#f4e1d2">About Us</a>
-      <a href="#coffee-varieties" class="sticky-link" data-color="#4a5d23">Our Coffee</a>
-      <a href="#sustainability" class="sticky-link" data-color="#2d4c1e">Sustainability</a>
-      <a href="#contact" class="sticky-link" data-color="#ffffff">Contact Us</a>
-    </div>
   </header>
 
   <!-- Content Sections -->
-  <!-- Visual Mode Toggle -->
-  <div class="mode-toggle">
-    <button class="mode-btn active" id="btn-solid">Solid Look</button>
-    <button class="mode-btn" id="btn-immersive">Immersive View</button>
-  </div>
-
   <main>
     <!-- History Section (About Us) -->
     <section id="history" class="full-bleed-section" style="background-color: #f4e1d2; color: #333;">
@@ -137,7 +131,8 @@
               <div class="timeline-event reveal blur-reveal">
                 <h3>The Estella Legacy</h3>
                 <p>Estella led the farm through political unrest, ensuring its resilience and growth with unwavering
-                  strength.</p>
+                  strength. We are a one-of-a-kind coffee that honors the legacy of a woman coffee grower, is led by a
+                  woman, and offers traceability grounded in a living history.</p>
               </div>
               <div class="timeline-event reveal blur-reveal" id="purpose">
                 <h3>Purpose & Mission</h3>
@@ -160,12 +155,13 @@
         <div class="variety-content reveal slide-left">
           <span class="category-tag">Variety</span>
           <h2>Pacamara</h2>
-          <p>Exceptional quality directly from our high-altitude farms. Grown at 1300 masl, this variety offers a
-            complex and vibrant profile.</p>
+          <p class="variety-profile">Sweet fragrance. Bright orange-like acidity. Caramel flavour with spicy notes.
+            Silky, full body.</p>
           <div class="specs-grid">
             <div class="spec-item"><strong>Score</strong><span>85</span></div>
-            <div class="spec-item"><strong>Process</strong><span>Washed Natural</span></div>
-            <div class="spec-item"><strong>Altitude</strong><span>1300 masl</span></div>
+            <div class="spec-item"><strong>Process</strong><span>Washed Natural — flexible upon customer request</span>
+            </div>
+            <div class="spec-item"><strong>Altitude</strong><span>1150 masl</span></div>
           </div>
         </div>
         <div class="variety-image reveal zoom-out tilt-card">
@@ -173,20 +169,21 @@
         </div>
       </div>
 
-      <div class="variety-row reverse" id="haba" style="background-color: #8b5a2b;">
+      <div class="variety-row reverse" id="java" style="background-color: #8b5a2b;">
         <div class="variety-content reveal slide-right">
           <span class="category-tag">Variety</span>
-          <h2>Haba</h2>
-          <p>Rich, bold flavors cultivated with passion. A testament to the professionalization realized by the second
-            generation of our family.</p>
+          <h2>Java</h2>
+          <p class="variety-profile">Sweet vanilla fragrance. Medium acidity. Full, creamy body. Delicate sweetness with
+            a milk chocolate flavour.</p>
           <div class="specs-grid">
-            <div class="spec-item"><strong>Score</strong><span>85</span></div>
-            <div class="spec-item"><strong>Process</strong><span>Washed Natural</span></div>
-            <div class="spec-item"><strong>Altitude</strong><span>1300 masl</span></div>
+            <div class="spec-item"><strong>Score</strong><span>84</span></div>
+            <div class="spec-item"><strong>Process</strong><span>Washed Natural — flexible upon customer request</span>
+            </div>
+            <div class="spec-item"><strong>Altitude</strong><span>1150 masl</span></div>
           </div>
         </div>
         <div class="variety-image reveal slide-left">
-          <img src="/media/image13.jpg" alt="Haba Beans">
+          <img src="/media/image13.jpg" alt="Java Beans">
         </div>
       </div>
 
@@ -194,12 +191,12 @@
         <div class="variety-content reveal slide-left">
           <span class="category-tag">Variety</span>
           <h2>Parainema</h2>
-          <p>A vibrant profile that tells the story of our legacy. High-yielding and resistant, reflecting our
-            innovative approach to sustainability.</p>
+          <p class="variety-profile">Citrus acidity with lemon notes. Dark chocolate flavour. Full body.</p>
           <div class="specs-grid">
-            <div class="spec-item"><strong>Score</strong><span>85</span></div>
-            <div class="spec-item"><strong>Process</strong><span>Washed Natural</span></div>
-            <div class="spec-item"><strong>Altitude</strong><span>1300 masl</span></div>
+            <div class="spec-item"><strong>Score</strong><span>83</span></div>
+            <div class="spec-item"><strong>Process</strong><span>Washed Natural — flexible upon customer request</span>
+            </div>
+            <div class="spec-item"><strong>Altitude</strong><span>1150 masl</span></div>
           </div>
         </div>
         <div class="variety-image reveal slide-right">
@@ -234,21 +231,78 @@
     <section id="contact" class="contact-section">
       <div class="contact-container reveal">
         <h2>Let's Connect</h2>
-        <p>Ready for direct trade samples and partnerships. Let´s bring Nicaraguan excellence to your market.</p>
-        <div class="contact-methods">
-          <div class="method">
-            <strong>Location</strong>
-            <span>Finca San Andrés, Jinotega, Nicaragua</span>
+        <p>Ready for direct trade samples and partnerships. Let's bring Nicaraguan excellence to your market.</p>
+        <div class="contact-team">
+          <div class="contact-person">
+            <img src="/media/contact-francesco.png" alt="Francesco" class="contact-photo">
+            <strong>Francesco</strong>
+            <a href="mailto:francesco@stellalegacycoffee.com">francesco@stellalegacycoffee.com</a>
+            <a href="tel:+393520426725">+39 352 042 6725</a>
           </div>
-          <div class="method">
-            <strong>Email</strong>
-            <span>mvaltamiranog@gmail.com</span>
-          </div>
-          <div class="method">
-            <strong>Phone</strong>
-            <span>+505-88881607</span>
+          <div class="contact-person">
+            <img src="/media/contact-louis.jpg" alt="Louis" class="contact-photo">
+            <strong>Louis</strong>
+            <a href="mailto:louis@estellalegacycoffee.com">louis@estellalegacycoffee.com</a>
+            <a href="tel:+4915238425818">+49 1523 842 5818</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Visit Us Section -->
+    <section id="visit" class="visit-section">
+      <div class="visit-container reveal">
+        <span class="category-tag">Visit Us</span>
+        <h2>Book a Farm Visit</h2>
+        <p>To book a visit to our farm located in <strong>Finca San Andrés, Jinotega, Nicaragua</strong>, please fill in
+          the form below and we will get back to you shortly.</p>
+        <form class="visit-form" id="visit-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Access Key (Replace with your actual key registered to francesco@) -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE">
+          
+          <!-- CC the second email -->
+          <input type="hidden" name="cc" value="louis@estellalegacycoffee.com">
+          
+          <!-- Optional: customize the subject line -->
+          <input type="hidden" name="subject" value="New Farm Visit Request - Estella Legacy Coffee">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="first-name">First Name <span class="required">*</span></label>
+              <input type="text" id="first-name" name="first-name" placeholder="Your first name" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name <span class="required">*</span></label>
+              <input type="text" id="last-name" name="last-name" placeholder="Your last name" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="company">Company <span class="required">*</span></label>
+              <input type="text" id="company" name="company" placeholder="Your company" required>
+            </div>
+            <div class="form-group">
+              <label for="position">Position <span class="required">*</span></label>
+              <input type="text" id="position" name="position" placeholder="Your position" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone <span class="optional">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900">
+            </div>
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div class="form-group full-width">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message"
+              placeholder="Tell us about yourself and your interest in visiting our farm..." rows="5"
+              required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Request</button>
+        </form>
       </div>
     </section>
   </main>
