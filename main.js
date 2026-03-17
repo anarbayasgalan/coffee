@@ -59,6 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let transitionTriggered = false;
 
     if (video) {
+        // Fallback for mobile: play on first user interaction if autoplay is blocked
+        const forcePlay = () => {
+            video.play().catch(err => console.log("Video play failed:", err));
+            window.removeEventListener('click', forcePlay);
+            window.removeEventListener('touchstart', forcePlay);
+        };
+        window.addEventListener('click', forcePlay);
+        window.addEventListener('touchstart', forcePlay, { passive: true });
+
         // We use 'timeupdate' to catch the end instantly on all devices
         video.addEventListener('timeupdate', () => {
             const timeLeft = video.duration - video.currentTime;

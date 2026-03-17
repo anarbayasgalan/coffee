@@ -341,6 +341,16 @@ a {
   transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.0s ease-out;
 }
 
+/* Hide play button and controls on mobile browsers */
+video::-webkit-media-controls {
+  display: none !important;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+
 .hero-slideshow {
   position: absolute;
   top: 0;
