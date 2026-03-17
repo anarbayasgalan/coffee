@@ -53,154 +53,103 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
-// --- YouTube Background & Slideshow Logic ---
-let player;
-window.onYouTubeIframeAPIReady = function() {
-    player = new YT.Player('youtube-player', {
-        videoId: 'T98vf10W064',
-        playerVars: {
-            'autoplay': 1,
-            'controls': 0,
-            'mute': 1,
-            'rel': 0,
-            'modestbranding': 1,
-            'showinfo': 0,
-            'playsinline': 1,
-            'loop': 0, // Do NOT loop so it fires the ENDED event
-        },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-        }
-    });
-};
+    // --- Background Video & Slideshow Logic ---
+    const video = document.getElementById('hero-bg-video');
+    let transitionTriggered = false;
 
-function onPlayerReady(event) {
-    event.target.mute();
-    event.target.playVideo();
-    
-    // Fallback for mobile browser's "no-autoplay" policy:
-    // Play the video as soon as the user touches the screen anywhere
-    const forcePlay = () => {
-        if (player && typeof player.playVideo === 'function') {
-            player.playVideo();
-            console.log("Forced video play on interaction");
-        }
-        window.removeEventListener('touchstart', forcePlay);
-        window.removeEventListener('click', forcePlay);
-    };
-    window.addEventListener('touchstart', forcePlay, { passive: true });
-    window.addEventListener('click', forcePlay);
-}
-
-let timeCheckerInterval = null;
-let slideshowTriggered = false;
-
-function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-        // Clear any existing interval
-        if (timeCheckerInterval) clearInterval(timeCheckerInterval);
-        
-        // Start polling the time to catch the end instantly
-        timeCheckerInterval = setInterval(() => {
-            const currentTime = player.getCurrentTime();
-            const duration = player.getDuration();
+    if (video) {
+        // We use 'timeupdate' to catch the end instantly on all devices
+        video.addEventListener('timeupdate', () => {
+            const timeLeft = video.duration - video.currentTime;
             
-            // If we are within 0.3 seconds of the end, trigger transition instantly
-            if (duration > 0 && (duration - currentTime) <= 0.3 && !slideshowTriggered) {
-                slideshowTriggered = true;
-                clearInterval(timeCheckerInterval);
+            // If we're within 0.3 seconds of the end, start the transition
+            if (!transitionTriggered && timeLeft <= 0.3 && video.duration > 0) {
+                transitionTriggered = true;
                 triggerSlideshowTransition();
             }
-        }, 100);
+        });
+
+        // Safety fallback
+        video.addEventListener('ended', () => {
+            if (!transitionTriggered) {
+                transitionTriggered = true;
+                triggerSlideshowTransition();
+            }
+        });
     }
-}
 
-function triggerSlideshowTransition() {
-    const playerEl = document.getElementById('youtube-player');
-    // Speed up the slide out transition slightly for a snappier feel
-    playerEl.style.transition = 'transform 1.0s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.0s ease-out';
-    playerEl.style.transform = 'translate(-100%, -50%)'; // Slide left
-    playerEl.style.opacity = '0'; 
-    startHeroSlideshow();
-}
-
-// Load the YouTube API dynamically
-const tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-document.head.appendChild(tag);
-
-// Slideshow: images 1-15 except 4
-const heroImages = [];
-for (let i = 1; i <= 15; i++) {
-    if (i !== 4) heroImages.push(`/media/image${i}.jpg`);
-}
-
-// Randomly shuffle images perfectly
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+    function triggerSlideshowTransition() {
+        const videoEl = document.getElementById('hero-bg-video');
+        // Smoothly slide out the localized video
+        videoEl.style.transition = 'transform 1.0s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.0s ease-out';
+        videoEl.style.transform = 'translate(-100%, 0)'; // Slide left
+        videoEl.style.opacity = '0'; 
+        startHeroSlideshow();
     }
-}
-shuffleArray(heroImages);
 
-let currentSlideIndex = 0;
+    // Slideshow: images 1-15 except 4
+    const heroImages = [];
+    for (let i = 1; i <= 15; i++) {
+        if (i !== 4) heroImages.push(`/media/image${i}.jpg`);
+    }
 
-function createSlide(imageUrl, zIndex) {
-    const slide = document.createElement('div');
-    slide.className = 'hero-slide';
-    slide.style.backgroundImage = `url('${imageUrl}')`;
-    slide.style.zIndex = zIndex;
-    return slide;
-}
+    // Randomly shuffle images
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+    shuffleArray(heroImages);
 
-function startHeroSlideshow() {
-    const slideshowContainer = document.getElementById('hero-slideshow');
-    slideshowContainer.classList.add('active'); 
-    
-    // Create first slide
-    let currentSlide = createSlide(heroImages[currentSlideIndex], -3);
-    slideshowContainer.appendChild(currentSlide);
-    
-    // Animate first slide in from right
-    // Start it off-screen right
-    currentSlide.style.transform = 'translateX(100%)';
-    
-    // Force reflow
-    void currentSlide.offsetWidth;
-    
-    // Slide it to center
-    currentSlide.style.transform = 'translateX(0)';
+    let currentSlideIndex = 0;
 
-    // Loop through images sliding in from right
-    setInterval(() => {
-        currentSlideIndex = (currentSlideIndex + 1) % heroImages.length;
+    function createSlide(imageUrl, zIndex) {
+        const slide = document.createElement('div');
+        slide.className = 'hero-slide';
+        slide.style.backgroundImage = `url('${imageUrl}')`;
+        slide.style.zIndex = zIndex;
+        return slide;
+    }
+
+    function startHeroSlideshow() {
+        const slideshowContainer = document.getElementById('hero-slideshow');
+        if (!slideshowContainer) return;
         
-        const nextSlide = createSlide(heroImages[currentSlideIndex], -2);
-        // Start off-screen right
-        nextSlide.style.transform = 'translateX(100%)';
-        slideshowContainer.appendChild(nextSlide);
+        slideshowContainer.classList.add('active'); 
         
-        // Force reflow
-        void nextSlide.offsetWidth;
+        // Create first slide
+        let currentSlide = createSlide(heroImages[currentSlideIndex], -3);
+        slideshowContainer.appendChild(currentSlide);
         
-        // Slide next in to center, current out to left
-        nextSlide.style.transform = 'translateX(0)';
-        currentSlide.style.transform = 'translateX(-30%)'; // slight parallax
-        currentSlide.style.opacity = '0'; // fade out old one smoothly
-        
-        // Clean up old slide after transition completes
-        const slideToRemove = currentSlide;
-        setTimeout(() => {
-            if (slideToRemove.parentNode) slideToRemove.parentNode.removeChild(slideToRemove);
-        }, 1000); // matches updated CSS transition time
-        
-        // Update reference
-        currentSlide = nextSlide;
-        currentSlide.style.zIndex = -3; // reset z-index for next overlap
-        
-    }, 5000); // Slide every 5 seconds
-}
+        // Animate first slide in from right
+        currentSlide.style.transform = 'translateX(100%)';
+        void currentSlide.offsetWidth; // Force reflow
+        currentSlide.style.transform = 'translateX(0)';
+
+        // Loop through images sliding in from right
+        setInterval(() => {
+            currentSlideIndex = (currentSlideIndex + 1) % heroImages.length;
+            
+            const nextSlide = createSlide(heroImages[currentSlideIndex], -2);
+            nextSlide.style.transform = 'translateX(100%)';
+            slideshowContainer.appendChild(nextSlide);
+            
+            void nextSlide.offsetWidth; // Force reflow
+            
+            nextSlide.style.transform = 'translateX(0)';
+            currentSlide.style.transform = 'translateX(-30%)'; 
+            currentSlide.style.opacity = '0'; 
+            
+            const slideToRemove = currentSlide;
+            setTimeout(() => {
+                if (slideToRemove.parentNode) slideToRemove.parentNode.removeChild(slideToRemove);
+            }, 1000); 
+            
+            currentSlide = nextSlide;
+            currentSlide.style.zIndex = -3; 
+            
+        }, 5000);
+    }
+});

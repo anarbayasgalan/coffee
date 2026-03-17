@@ -332,13 +332,13 @@ a {
 
 .hero-background-video {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100vw;
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none; /* Prevents clicking the YouTube video */
-  transition: opacity 1.5s ease;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 1.0s cubic-bezier(0.25, 1, 0.5, 1), opacity 1.0s ease-out;
 }
 
 .hero-slideshow {
@@ -369,17 +369,6 @@ a {
   will-change: transform, opacity;
 }
 
-@media (min-aspect-ratio: 16/9) {
-  .hero-background-video {
-    height: 300vw; /* Scales height up to crop correctly if screen is wide */
-  }
-}
-
-@media (max-aspect-ratio: 16/9) {
-  .hero-background-video {
-    width: 300vh; /* Scales width up to crop correctly if screen is tall */
-  }
-}
 
 .video-overlay {
   position: absolute;
