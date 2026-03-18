@@ -1107,8 +1107,8 @@ body.immersive-mode .history-text {
   .menu-toggle {
     display: block;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 25px;
+    right: 25px;
     z-index: 2000;
   }
 
@@ -1183,13 +1183,11 @@ body.immersive-mode .history-text {
 
   .coffee-preview-grid {
     display: flex !important;
-    flex-direction: row !important;
     justify-content: space-between !important;
-    align-items: flex-start !important;
-    gap: 5px;
     padding: 15px 0;
     margin: 0;
     width: 100% !important;
+    min-width: 100% !important;
     overflow: visible !important;
   }
 
@@ -1198,17 +1196,14 @@ body.immersive-mode .history-text {
   }
 
   .coffee-card {
-    flex: 0 0 32% !important;
-    width: 32% !important;
-    min-width: 0;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center;
-    text-align: center;
-    gap: 4px;
-    padding: 5px 0;
-    background: transparent;
-    text-decoration: none;
+    align-items: center !important;
+    width: 30% !important;
+    flex: 0 0 30% !important;
+    min-width: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .nav-contact-row {
