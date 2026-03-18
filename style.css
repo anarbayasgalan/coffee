@@ -249,14 +249,16 @@ a {
 }
 
 /* Right-side dropdowns: align to the right so they don't overflow */
-.right-links .nav-item.has-dropdown .mega-dropdown {
-  left: auto;
-  right: 0;
-  transform: translateX(0) translateY(10px);
+/* Right-side dropdowns: ensure they have enough space in the split-nav layout */
+.nav-right .nav-item.has-dropdown .mega-dropdown {
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 320px; /* Base width for contact dropdown */
 }
 
-.right-links .nav-item.has-dropdown:hover .mega-dropdown {
-  transform: translateX(0) translateY(0);
+.nav-right .nav-item.has-dropdown:hover .mega-dropdown {
+  transform: translateX(-50%) translateY(0);
 }
 
 .dropdown-content {
@@ -301,8 +303,9 @@ a {
 .coffee-preview-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  min-width: 500px;
+  gap: 30px;
+  min-width: 650px; /* Increased to ensure all 3 cards fit on desktop */
+  padding: 10px;
 }
 
 .coffee-card {
