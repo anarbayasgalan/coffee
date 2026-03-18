@@ -1177,10 +1177,11 @@ body.immersive-mode .history-text {
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     gap: 20px;
-    padding: 15px 5px;
-    width: 100%;
-    scrollbar-width: none; /* Hide scrollbar Firefox */
-    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+    padding: 20px 40px; /* Matching drawer padding for edge-to-edge look */
+    margin: 0 -40px; /* Offset drawer padding */
+    width: calc(100% + 80px); /* Full width including overflow */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
   .coffee-preview-grid::-webkit-scrollbar {
@@ -1213,8 +1214,9 @@ body.immersive-mode .history-text {
   }
 
   .nav-item.active .mega-dropdown {
-    max-height: 800px; /* Allow more space for stacked list */
+    max-height: 800px;
     margin-top: 10px;
+    overflow: visible; /* CRITICAL: allow horizontal scroll of grid */
   }
 
   .nav-item {
