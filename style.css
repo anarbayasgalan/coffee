@@ -1183,11 +1183,13 @@ body.immersive-mode .history-text {
 
   .coffee-preview-grid {
     display: flex !important;
-    justify-content: space-between !important;
-    padding: 15px 0;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+    padding: 10px 0;
     margin: 0;
     width: 100% !important;
-    min-width: 100% !important;
     overflow: visible !important;
   }
 
@@ -1196,12 +1198,16 @@ body.immersive-mode .history-text {
   }
 
   .coffee-card {
+    flex: 1 !important;
+    min-width: 0 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    width: 30% !important;
-    flex: 0 0 30% !important;
-    min-width: 0 !important;
+    text-align: center;
+    gap: 4px;
+    padding: 5px 0;
+    background: transparent;
+    text-decoration: none;
     opacity: 1 !important;
     visibility: visible !important;
   }
@@ -1213,15 +1219,15 @@ body.immersive-mode .history-text {
   }
 
   .coffee-card img {
-    width: 45px;
-    height: 45px;
+    width: 40px !important;
+    height: 40px !important;
     border-radius: 6px;
     margin-bottom: 2px;
     object-fit: cover;
   }
 
   .coffee-card span {
-    font-size: 0.65rem;
+    font-size: 0.6rem !important;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
