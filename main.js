@@ -20,22 +20,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Mobile Menu Toggle ---
     const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelectorAll('.nav-links'); // both left and right
+    const navWrapper = document.querySelector('.nav-wrapper');
 
-    if (menuToggle) {
+    if (menuToggle && navWrapper) {
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
-            navLinks.forEach(nav => nav.classList.toggle('active'));
-            document.body.classList.toggle('no-scroll'); // Prevent background scrolling
+            navWrapper.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
         });
 
         // Close menu when a link is clicked
         const navItems = document.querySelectorAll('.nav-item > a');
         navItems.forEach(item => {
             item.addEventListener('click', () => {
+                // If it's not a dropdown toggle, close the menu
                 if (window.innerWidth <= 768 && !item.parentElement.classList.contains('has-dropdown')) {
                     menuToggle.classList.remove('active');
-                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    navWrapper.classList.remove('active');
                     document.body.classList.remove('no-scroll');
                 }
             });
