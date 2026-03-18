@@ -229,12 +229,14 @@ a {
   top: var(--nav-height);
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  width: max-content; /* Ensure it expands to fit children */
   min-width: 280px;
+  max-width: 90vw; /* Prevent it from going off-screen */
   border-radius: 0 0 16px 16px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-smooth);
@@ -303,8 +305,8 @@ a {
 .coffee-preview-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  min-width: 650px; /* Increased to ensure all 3 cards fit on desktop */
+  gap: 35px;
+  min-width: 700px; /* Stronger enforcement of width for 3 cards */
   padding: 10px;
 }
 
