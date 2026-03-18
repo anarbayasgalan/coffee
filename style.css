@@ -1171,26 +1171,33 @@ body.immersive-mode .history-text {
   }
 
   .coffee-preview-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* Stack vertically for mobile */
-    gap: 15px;
-    min-width: 0 !important;
-    padding: 10px 0;
-    justify-items: center; /* Center cards horizontally */
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 15px 5px;
+    width: 100%;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar IE/Edge */
+  }
+
+  .coffee-preview-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
   }
 
   .coffee-card {
-    flex-direction: column; /* Stacked look for better centering on phone */
+    flex: 0 0 140px; /* Fixed width for horizontal items */
+    scroll-snap-align: center;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 10px;
-    width: 100%;
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.02);
-  }
-
-  .coffee-card:last-child {
-    border-bottom: none;
+    gap: 8px;
+    padding: 10px;
+    background: rgba(0,0,0,0.02);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
   }
 
   .nav-contact-row {
