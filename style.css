@@ -145,12 +145,17 @@ a {
 }
 
 .logo {
-  flex-shrink: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  transition: transform 0.3s ease;
 }
 
 .logo img {
   height: 80px;
   width: auto;
+  display: block;
   filter: brightness(0.4) contrast(1.2);
   transition: transform 0.3s ease;
 }
@@ -1120,15 +1125,28 @@ body.immersive-mode .history-text {
     grid-template-columns: 1fr; /* Stack vertically for mobile */
     gap: 15px;
     min-width: 0 !important;
-    padding-top: 10px;
+    padding: 10px 0;
+    justify-items: center; /* Center cards horizontally */
   }
 
   .coffee-card {
-    flex-direction: row; /* Horizontal layout for coffee cards in mobile list */
+    flex-direction: column; /* Stacked look for better centering on phone */
     align-items: center;
-    gap: 15px;
+    text-align: center;
+    gap: 10px;
     width: 100%;
-    padding: 8px 0;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.02);
+  }
+
+  .coffee-card:last-child {
+    border-bottom: none;
+  }
+
+  .nav-contact-row {
+    text-align: center;
+    align-items: center;
+    padding: 15px 0;
   }
 
   .coffee-card img {

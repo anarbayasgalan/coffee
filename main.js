@@ -47,9 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileDropdowns.forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
-                // If it's a mobile dropdown, toggle it on click instead of navigating
                 e.preventDefault();
-                anchor.parentElement.classList.toggle('active');
+                const parent = anchor.parentElement;
+                
+                // Close all other dropdowns
+                document.querySelectorAll('.nav-item.has-dropdown').forEach(item => {
+                    if (item !== parent) item.classList.remove('active');
+                });
+
+                // Toggle the clicked one
+                parent.classList.toggle('active');
             }
         });
     });
