@@ -37,6 +37,12 @@ body {
   background-color: var(--color-light);
   color: var(--color-dark);
   position: relative;
+  line-height: 1.6;
+}
+
+p {
+  text-align: justify;
+  hyphens: auto;
 }
 
 body.no-scroll {
@@ -1121,6 +1127,7 @@ body.immersive-mode .history-text {
     gap: 20px;
     align-items: flex-start;
     overflow-y: auto;
+    overflow-x: hidden; /* CRITICAL: prevent slider from moving the whole drawer */
   }
 
   /* When active */
@@ -1332,6 +1339,12 @@ body.immersive-mode .history-text {
 
   .contact-section {
     padding: 5rem 1.5rem 3rem;
+  }
+
+  /* Global mobile text padding safety */
+  p, h1, h2, h3, .section-title {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   /* Footer */
