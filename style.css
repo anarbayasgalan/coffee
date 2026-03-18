@@ -1182,14 +1182,15 @@ body.immersive-mode .history-text {
   }
 
   .coffee-preview-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
     gap: 5px;
-    padding: 10px 0;
+    padding: 15px 0;
     margin: 0;
-    width: 100%;
-    overflow: hidden;
-    justify-items: center;
+    width: 100% !important;
+    overflow: visible !important;
   }
 
   .coffee-preview-grid::-webkit-scrollbar {
@@ -1197,15 +1198,17 @@ body.immersive-mode .history-text {
   }
 
   .coffee-card {
-    flex: 0 0 30%;
+    flex: 0 0 32% !important;
+    width: 32% !important;
     min-width: 0;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center;
     text-align: center;
     gap: 4px;
-    padding: 5px 2px;
+    padding: 5px 0;
     background: transparent;
-    transition: transform 0.3s ease;
+    text-decoration: none;
   }
 
   .nav-contact-row {
@@ -1215,10 +1218,11 @@ body.immersive-mode .history-text {
   }
 
   .coffee-card img {
-    width: 42px;
-    height: 42px;
+    width: 45px;
+    height: 45px;
     border-radius: 6px;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+    object-fit: cover;
   }
 
   .coffee-card span {
