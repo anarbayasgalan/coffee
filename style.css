@@ -1078,17 +1078,18 @@ body.immersive-mode .history-text {
     position: fixed;
     top: 0;
     right: -100%; /* Hide off-screen */
-    width: 85%;
-    max-width: 320px;
+    width: 100%; /* Full width for a cleaner "reshaped" feel on mobile */
     height: 100vh;
-    background: white;
-    padding: 100px 30px 40px;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 100px 40px 40px;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.05);
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 1050;
-    gap: 10px;
+    gap: 15px;
     align-items: flex-start;
     overflow-y: auto;
+    border-left: 1px solid rgba(0,0,0,0.05);
   }
 
   /* When active */
@@ -1104,18 +1105,40 @@ body.immersive-mode .history-text {
     visibility: visible;
     box-shadow: none;
     padding: 0;
-    min-width: 0;
+    min-width: 0 !important; /* Critical fix for overflow */
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: max-height 0.4s ease;
     background: transparent;
     backdrop-filter: none;
     border: none;
   }
 
+  .coffee-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack vertically for mobile */
+    gap: 15px;
+    min-width: 0 !important;
+    padding-top: 10px;
+  }
+
+  .coffee-card {
+    flex-direction: row; /* Horizontal layout for coffee cards in mobile list */
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  .coffee-card img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+  }
+
   .nav-item.active .mega-dropdown {
-    max-height: 500px;
+    max-height: 800px; /* Allow more space for stacked list */
     margin-top: 10px;
   }
 
@@ -1127,12 +1150,15 @@ body.immersive-mode .history-text {
   }
 
   .nav-item > a {
-    font-size: 1.2rem;
-    padding: 10px 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 12px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.03);
   }
 
   .dropdown-content {
-    padding: 10px 0 10px 20px;
+    padding: 10px 0 10px 15px;
   }
 
   /* Logo centred on mobile */
