@@ -444,22 +444,30 @@ video::-webkit-media-controls-start-playback-button {
 }
 
 .hero-content h1 {
-  font-size: 5rem;
+  font-size: 5.5rem;
   font-weight: 800;
   color: var(--color-light);
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .hero-subtitle {
-  font-size: 1.8rem;
-  font-weight: 400;
-  letter-spacing: 5px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  color: var(--color-light);
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  margin-bottom: 2rem;
+  color: #d4a373; /* Gold/Bronze accent color for purpose */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 10px 0;
+}
+
+.hero-title-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
 }
 
 /* Sticky Nav — hidden (removed from HTML) */
@@ -705,11 +713,22 @@ body.immersive-mode #history p {
   color: #8b5a2b;
 }
 
-body.immersive-mode #contact {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/media/image10.jpg') !important;
-  background-size: cover;
-  background-position: center;
-  color: white;
+#contact {
+  background: #1a1a1a !important; /* Solid dark background */
+  color: white !important;
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+#contact h2 {
+  color: white !important;
+  margin-bottom: 0.5rem;
+}
+
+#contact p {
+  color: white !important;
+  margin-bottom: 2rem;
+  opacity: 0.9;
 }
 
 body.immersive-mode #contact .contact-container {

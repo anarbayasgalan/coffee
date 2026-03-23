@@ -71,7 +71,8 @@
   <!-- Hero Section -->
   <header class="hero" id="home">
     <div class="hero-video-container">
-      <video id="hero-bg-video" class="hero-background-video" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline" webkit-playsinline="webkit-playsinline" preload="auto">
+      <video id="hero-bg-video" class="hero-background-video" autoplay="autoplay" loop="loop" muted="muted"
+        playsinline="playsinline" webkit-playsinline="webkit-playsinline" preload="auto">
         <source src="/media/hero-video.mp4" type="video/mp4">
       </video>
       <div id="hero-slideshow" class="hero-slideshow"></div>
@@ -81,8 +82,10 @@
       <div class="hero-logo-box">
         <img src="/media/image17.png" alt="Estella Legacy Coffee" class="hero-logo">
       </div>
-      <h1 class="reveal">Estella Legacy Coffee</h1>
-      <p class="hero-subtitle reveal">Three Generations, One Purpose</p>
+      <div class="hero-title-stack">
+        <p class="hero-subtitle reveal">Three Generations, One Purpose</p>
+        <h1 class="reveal">Estella Legacy Coffee</h1>
+      </div>
     </div>
   </header>
 
@@ -239,10 +242,10 @@
         <form class="visit-form" id="visit-form" action="https://api.web3forms.com/submit" method="POST">
           <!-- Web3Forms Access Key (Replace with your actual key registered to francesco@) -->
           <input type="hidden" name="access_key" value="01e5d29f-8c36-4415-8e49-7133ee87ea7f">
-          
+
           <!-- CC the second email -->
-          <input type="hidden" name="cc" value="louis@estellalegacycoffee.com,anarbayasgalan7@gmail.com">
-          
+          <input type="hidden" name="cc" value="louis@estellalegacycoffee.com">
+
           <!-- Optional: customize the subject line -->
           <input type="hidden" name="subject" value="New Farm Visit Request - Estella Legacy Coffee">
           <div class="form-row">
