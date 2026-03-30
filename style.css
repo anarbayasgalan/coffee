@@ -18,7 +18,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -49,7 +50,11 @@ body.no-scroll {
   overflow: hidden;
 }
 
-section, header, footer, div, nav {
+section,
+header,
+footer,
+div,
+nav {
   max-width: 100%;
 }
 
@@ -84,8 +89,13 @@ section, header, footer, div, nav {
   transition: transform 0.3s, top 0.3s;
 }
 
-.hamburger::before { top: -8px; }
-.hamburger::after { top: 8px; }
+.hamburger::before {
+  top: -8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
 
 /* Hamburger Open States */
 .menu-toggle.active .hamburger {
@@ -238,9 +248,11 @@ a {
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
-  width: max-content; /* Ensure it expands to fit children */
+  width: max-content;
+  /* Ensure it expands to fit children */
   min-width: 280px;
-  max-width: 90vw; /* Prevent it from going off-screen */
+  max-width: 90vw;
+  /* Prevent it from going off-screen */
   border-radius: 0 0 16px 16px;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
   opacity: 0;
@@ -262,7 +274,8 @@ a {
   left: 50%;
   right: auto;
   transform: translateX(-50%) translateY(10px);
-  min-width: 320px; /* Base width for contact dropdown */
+  min-width: 320px;
+  /* Base width for contact dropdown */
 }
 
 .nav-right .nav-item.has-dropdown:hover .mega-dropdown {
@@ -292,7 +305,7 @@ a {
   flex-direction: column;
   gap: 4px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .nav-contact-row:last-child {
@@ -312,7 +325,8 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 35px;
-  min-width: 700px; /* Stronger enforcement of width for 3 cards */
+  min-width: 700px;
+  /* Stronger enforcement of width for 3 cards */
   padding: 10px;
 }
 
@@ -394,7 +408,8 @@ video::-webkit-media-controls-start-playback-button {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -3; /* Behind video if both are visible */
+  z-index: -3;
+  /* Behind video if both are visible */
   overflow: hidden;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
@@ -423,7 +438,8 @@ video::-webkit-media-controls-start-playback-button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Darkens the video so text is readable */
+  background: rgba(0, 0, 0, 0.4);
+  /* Darkens the video so text is readable */
   z-index: -1;
 }
 
@@ -458,7 +474,8 @@ video::-webkit-media-controls-start-playback-button {
   font-weight: 500;
   letter-spacing: 6px;
   text-transform: uppercase;
-  color: #d4a373; /* Gold/Bronze accent color for purpose */
+  color: #d4a373;
+  /* Gold/Bronze accent color for purpose */
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   margin: 10px 0;
 }
@@ -663,7 +680,7 @@ body.immersive-mode #history p {
   margin-bottom: 0.75rem;
 }
 
-.contact-container > p {
+.contact-container>p {
   color: #666;
   margin-bottom: 3rem;
   font-size: 1.05rem;
@@ -692,7 +709,7 @@ body.immersive-mode #history p {
   object-position: top;
   border-radius: 50%;
   border: 3px solid #8b5a2b;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   margin-bottom: 0.5rem;
 }
 
@@ -714,7 +731,9 @@ body.immersive-mode #history p {
 }
 
 #contact {
-  background: #1a1a1a !important; /* Solid dark background */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url('/media/image6.jpg') !important;
+  background-size: cover;
+  background-position: center;
   color: white !important;
   padding: 5rem 5%;
   text-align: center;
@@ -744,7 +763,7 @@ body.immersive-mode #contact .contact-container {
 }
 
 body.immersive-mode .contact-person a {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* --- Visit Us Section --- */
@@ -769,7 +788,7 @@ body.immersive-mode .contact-person a {
   margin-bottom: 1rem;
 }
 
-.visit-container > p {
+.visit-container>p {
   color: #555;
   margin-bottom: 2rem;
   line-height: 1.6;
@@ -855,13 +874,13 @@ body.immersive-mode .contact-person a {
   letter-spacing: 2px;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .form-submit:hover {
   background: #8b5a2b;
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(139,90,43,0.3);
+  box-shadow: 0 8px 25px rgba(139, 90, 43, 0.3);
 }
 
 /* variety profile italic style */
@@ -1045,7 +1064,7 @@ body.immersive-mode #pacamara {
   background-position: center;
 }
 
-body.immersive-mode #haba {
+body.immersive-mode #java {
   background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/media/image13.jpg') !important;
   background-size: cover;
   background-position: center;
@@ -1107,7 +1126,8 @@ body.immersive-mode .history-text {
 
   .nav-container {
     padding: 0 16px;
-    justify-content: space-between; /* Hamburger left, Logo center, dummy right? */
+    justify-content: space-between;
+    /* Hamburger left, Logo center, dummy right? */
   }
 
   /* Centering logo on mobile using a simpler flex approach if possible */
@@ -1117,7 +1137,7 @@ body.immersive-mode .history-text {
     transform: translateX(-50%);
     z-index: 1001;
   }
-  
+
   .logo img {
     height: 60px;
   }
@@ -1137,20 +1157,22 @@ body.immersive-mode .history-text {
     flex-direction: column;
     position: fixed;
     top: 0;
-    right: -100%; /* Hide off-screen */
+    right: -100%;
+    /* Hide off-screen */
     width: 100%;
     height: 100vh;
     background: #ffffff !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     padding: 80px 20px 40px;
-    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 1050;
     gap: 20px;
     align-items: flex-start;
     overflow-y: auto;
-    overflow-x: hidden; /* CRITICAL: prevent slider from moving the whole drawer */
+    overflow-x: hidden;
+    /* CRITICAL: prevent slider from moving the whole drawer */
   }
 
   /* When active */
@@ -1162,7 +1184,8 @@ body.immersive-mode .history-text {
     display: flex;
     flex-direction: column;
     width: 100%;
-    position: static; /* Reset from desktop or previous mobile */
+    position: static;
+    /* Reset from desktop or previous mobile */
     height: auto;
     background: transparent;
     backdrop-filter: none;
@@ -1173,7 +1196,7 @@ body.immersive-mode .history-text {
   }
 
   .nav-links.nav-left {
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     padding-bottom: 15px;
   }
 
@@ -1190,7 +1213,8 @@ body.immersive-mode .history-text {
     visibility: visible;
     box-shadow: none;
     padding: 0;
-    min-width: 0 !important; /* Critical fix for overflow */
+    min-width: 0 !important;
+    /* Critical fix for overflow */
     width: 100%;
     max-height: 0;
     overflow: hidden;
@@ -1213,7 +1237,8 @@ body.immersive-mode .history-text {
   }
 
   .coffee-preview-grid::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+    display: none;
+    /* Hide scrollbar Chrome/Safari */
   }
 
   .coffee-card {
@@ -1263,7 +1288,8 @@ body.immersive-mode .history-text {
   .nav-item.active .mega-dropdown {
     max-height: 800px;
     margin-top: 10px;
-    overflow: visible; /* CRITICAL: allow horizontal scroll of grid */
+    overflow: visible;
+    /* CRITICAL: allow horizontal scroll of grid */
   }
 
   .nav-item {
@@ -1273,12 +1299,12 @@ body.immersive-mode .history-text {
     align-items: flex-start;
   }
 
-  .nav-item > a {
+  .nav-item>a {
     font-size: 1.4rem;
     font-weight: 500;
     padding: 12px 0;
     width: 100%;
-    border-bottom: 1px solid rgba(0,0,0,0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
   }
 
   .dropdown-content {
@@ -1382,7 +1408,11 @@ body.immersive-mode .history-text {
   }
 
   /* Global mobile text padding safety */
-  p, h1, h2, h3, .section-title {
+  p,
+  h1,
+  h2,
+  h3,
+  .section-title {
     padding-left: 5px;
     padding-right: 5px;
   }
